@@ -33,6 +33,10 @@ jobs:
           CERT_HOME: /home/runner/.acme.sh
           ACME_HOME: /home/runner/.acme.sh
           WORK_DIR: .
+          CF_Key: ${{ secrets.CF_Key }}
+          CF_Email: ${{ secrets.CF_Email }}
+          CF_Token: ${{ secrets.CF_Token }}
+          CF_Zone_ID: ${{ secrets.CF_Zone_ID }}
         run: sh ./docker/update.sh
 
       - name: Notification
