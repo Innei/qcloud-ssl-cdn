@@ -3,6 +3,9 @@ name: Update Cert
 on:
   schedule:
     - cron: '0 10 1 * *'
+
+  push:
+    branches: [main]
   # add a tag to trigger manually
   workflow_dispatch:
 
@@ -37,7 +40,7 @@ jobs:
         if: always()
         with:
           host: ${{ secrets.BARK_HOST}} # not required
-          key: ${{ secrets.BARK_KEY }}   # Your secret key
+          key: ${{ secrets.BARK_KEY }} # Your secret key
           title: Github Actions
           body: 'Your tencent cdn certs update ${{ job.status }}！'
           isArchive: 1
